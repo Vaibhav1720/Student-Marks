@@ -1,0 +1,43 @@
+
+<form method="POST" action="">
+  Roll No <input type="number" name="roll" />
+  <br>
+  Name <input type="text" name="name" />
+  <br>
+  Marks in Maths <input type="text" name="maths"  id="maths"/>
+  <br>
+  Marks in Physics <input type="text" name="physics" id="physics"/>
+  <br>
+  Marks in Chemistry <input type="text" name="chemistry" id="chemistry"/>
+  <br>
+  Total <input type="text" name="total" value="0" id="total"/>
+  <br>
+  Percentage <input type="text" name="percentage" value="0" id="percentage"/>
+  <br>
+  <input type="submit">
+  <h1 id="myText"></h1>
+</form>
+<script>
+  var m=document.getElementById('maths');
+  var p=document.getElementById('physics');
+  var c=document.getElementById('chemistry');
+  var t=document.getElementById('total');
+  var per=document.getElementById('percentage');
+  var sum=0;
+  m.addEventListener('change',handleChange);
+  p.addEventListener('change',handleChange);
+  c.addEventListener('change',handleChange);
+  var total=document.getElementById("myText")
+   function handleChange()
+  {
+    console.log(m.value)
+    var maths_m=m.value?parseInt(m.value):0
+    var phy_m=m.value?parseInt(p.value):0
+    var chy_m=m.value?parseInt(c.value):0
+    // sum=parseInt(m.value)+parseInt(p.value)+parseInt(c.value);
+    sum=maths_m+phy_m +chy_m
+    console.log(sum);
+    if(sum)
+    t.value=sum,per.value=sum/3.0
+  }
+</script>
